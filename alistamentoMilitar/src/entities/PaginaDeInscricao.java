@@ -11,19 +11,20 @@ public class PaginaDeInscricao {
 		
 		//Inscrição dos candidatos
 
-		private Candidato candidatos[] = new Candidato[100];
-		private int candidatosRegistered = 0;
+		protected Candidato candidatos[] = new Candidato[100];
+		protected int candidatosRegistered = 0;
 
 		public void inscricao(Scanner scanner) {
 			
 			NumberFormat numberFormat = NumberFormat.getInstance(Locale.US);
 			
 			System.out.println("Digite seu nome completo: ");
-			String name= scanner.next();
-			scanner.nextLine();
+			String name = scanner.nextLine();
+			
 			System.out.println("\nDigite seu ano de nascimento: ");
 			int bDayYear = scanner.nextInt();
-			scanner.nextLine();
+			scanner.nextLine(); // Limpar o buffer do scanner
+
 			System.out.println("Digite o nome da sua mãe: ");
 			String nameMother = scanner.nextLine();
 			
@@ -35,6 +36,7 @@ public class PaginaDeInscricao {
 			
 			System.out.println("Informe seu email: ");
 			String email = scanner.next();
+			scanner.nextLine(); // Limpar o buffer do scanner
 			
 			System.out.println("Qual sua altura em metros? (Ex: 1,78 ou 1.78): ");
 			double height = lerAltura(scanner, numberFormat);
@@ -45,11 +47,14 @@ public class PaginaDeInscricao {
 			Candidato candidato = new Candidato(name, bDayYear, nameMother, nameFather, cellPhone, email, height, weight);
 			candidatos[candidatosRegistered] = candidato;
 			candidatosRegistered++;
+
+			//Exibição do número de candidatos já cadastrados
+			System.out.println("Candidatos já cadastrados: " + candidatosRegistered);
 		}
 		
 		
 		//Formatação da altura para que aceite , ou . e faça o tratamento desse dado contendo também uma exceção para caso seja passado o dado de maneira incorreta e assim formamos um loop infinito até que retorne verdade
-		private double lerAltura(Scanner scanner, NumberFormat numberFormat) {
+		protected double lerAltura(Scanner scanner, NumberFormat numberFormat) {
 			numberFormat = NumberFormat.getInstance(Locale.US);
 		    while (true) {
 		        try {
@@ -60,8 +65,8 @@ public class PaginaDeInscricao {
 		        }
 		    }
 		}
-		//Formatação do peso para que aceite , ou . e faça o tratamento desse dado contendo também uma exceção para caso seja passado o dado de maneira incorreta (EX: ,. ou ,, etc...) e assim formamos um loop infinito até que retorne verdade
-		private double lerPeso(Scanner scanner, NumberFormat numberFormat) {
+		//Formatação do peso para que aceite ',' ou '.' e faça o tratamento desse dado contendo também uma exceção para caso seja passado o dado de maneira incorreta (EX: ,. ou ,, etc...) e assim formamos um loop infinito até que retorne verdade
+		protected double lerPeso(Scanner scanner, NumberFormat numberFormat) {
 	    	numberFormat = NumberFormat.getInstance(Locale.US);
 			while(true) {
 				try {
@@ -75,12 +80,12 @@ public class PaginaDeInscricao {
 		
 		//Metodo de exibição dos candidatos
 		public void Exibicao() {
-			System.out.println("\nLista de Candidatos 2024: ");
+			System.out.println("\nLista de Candidatos 2025: ");
 			for(int i = 0; i < candidatosRegistered; i++ ) {
 				Candidato candidato = candidatos[i];
 				System.out.println("Candidato " + (i + 1) + ":");
 				candidato.ExibicaoDadosCandidatos();
-				candidato.verificacao();
+				candidato.Verificacao();
 				System.out.println("----------------------");
 			}
 		}

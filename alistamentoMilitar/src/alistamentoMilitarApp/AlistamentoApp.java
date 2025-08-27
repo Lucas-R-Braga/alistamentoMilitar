@@ -8,9 +8,6 @@ public class AlistamentoApp {
 
 	public static void main(String[] args) {
 		
-
-
-		
 		Scanner scanner = new Scanner(System.in);
 		PaginaDeInscricao inscricao = new PaginaDeInscricao();
 		

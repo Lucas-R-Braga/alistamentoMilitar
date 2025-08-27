@@ -30,7 +30,7 @@ public class Candidato {
 	public void ExibicaoDadosCandidatos() {
 		
 		System.out.println("Nome do candidato: " + name);
-		System.out.println("idade: " + calcularIdade());
+		System.out.println("idade: " +  calcularIdade());
 		System.out.println("Nome da Mãe: " + nameMother);
 		System.out.println("Nome do pai: " + nameFather);
 		System.out.println("Telefone: " + cellPhone);
@@ -39,11 +39,11 @@ public class Candidato {
 		System.out.println("Peso: " + String.format("%.2f", weight));
 	}
 	
-	private int calcularIdade() {
-		int currentYear = 2024;
+	public int calcularIdade() {
+		int currentYear = 2025; // Considerando o ano atual como 2025
 		return currentYear - bDayYear;
 	}
-	public void verificacao() {
+	public void Verificacao() {
 		int age = calcularIdade();
 		int valorMulta = (age - 20) * 5;
 		if(age < 18) {
