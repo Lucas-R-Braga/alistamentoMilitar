@@ -36,7 +36,7 @@ public class Candidato {
 		System.out.println("Telefone: " + cellPhone);
 		System.out.println("E-mail: " + email);
 		System.out.println("Altura: " + String.format("%.2f", height));
-		System.out.println("Peso: " + String.format("%.2f", weight));
+		System.out.println("Peso: " + String.format("%.2f", weight)+"kg");
 	}
 	
 	public int calcularIdade() {
